@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magrelo Barbershop</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Header e Navegação -->
+    <header class="header">
+        <nav class="nav">
+            <div class="nav__brand">
+                <h1>Magrelo Barbershop</h1>
+            </div>
+            <ul class="nav__list">
+                <li class="nav__item"><a href="#home">Home</a></li>
+                <li class="nav__item"><a href="#services">Serviços</a></li>
+                <li class="nav__item"><a href="#barbers">Barbeiros</a></li>
+                <li class="nav__item"><a href="#contact">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Home com Vídeo de Fundo -->
+    <section id="home" class="home">
+        <video class="home__video" autoplay muted loop>
+            <source src="imagens/IMG_5226.m4v" type="video/mp4">
+          
+        </video>
+        <div class="home__container">
+            <h1 class="home__title">Bem-vindo à Magrelo Barbershop</h1>
+            <p class="home__description">Onde seu estilo encontra a tradição.</p>
+            <a href="#services" class="button__link">Agende seu corte</a>
+        </div>
+    </section>
+
+    <!-- Seção de Nossos Barbeiros -->
+    <section id="barbers" class="barbers">
+        <h2 class="section__title">Nossos Barbeiros</h2>
+        <div class="barbers__container">
+            <div class="barber__card">
+                <img src="barber1.jpg" alt="Barbeiro Magrelo" class="barber__image">
+                <h3>Magrelo</h3>
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p>Especialidades: Corte Clássico, Barba, Estilo Moderno</p>
+            </div>
+            <div class="barber__card">
+                <img src="barber2.jpg" alt="Barbeiro Ney" class="barber__image">
+                <h3>Ney</h3>
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p>Especialidades: Corte de Cabelo, Barba, Design de Sobrancelhas</p>
+            </div>
+            <div class="barber__card">
+                <img src="barber3.jpg" alt="Barbeiro Darkson" class="barber__image">
+                <h3>Darkson</h3>
+                <div class="rating">
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                    <span class="star">★</span>
+                </div>
+                <p>Especialidades: Corte Estiloso, Barba, Descoloração</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Agendamento -->
+    <section id="services" class="services">
+        <h2 class="section__title">Agende seu Corte</h2>
+        <div class="agend">
+            <label for="service">Selecione o serviço:</label>
+            <select id="service">
+                <option>Corte de Cabelo</option>
+                <option>Barba</option>
+                <option>Corte e Barba</option>
+            </select>
+
+            <label for="barber">Selecione o barbeiro:</label>
+            <select id="barber">
+                <option>Magrelo</option>
+                <option>Ney</option>
+                <option>Darkson</option>
+            </select>
+
+            <label for="date">Escolha a data:</label>
+            <input type="date" id="date">
+
+            <label for="time">Escolha o horário:</label>
+            <input type="time" id="time">
+
+            <h3>Cadastro do Cliente:</h3>
+            <label for="name">Nome:</label>
+            <input type="text" id="name" required>
+
+            <label for="phone">Telemóvel:</label>
+            <input type="tel" id="phone" required>
+
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" required>
+
+            <label for="password">Criar Senha:</label>
+            <input type="password" id="password" required>
+
+            <label for="birthday">Data de Aniversário (opcional):</label>
+            <input type="date" id="birthday">
+
+            <label for="nickname">Apelido ou Referência (opcional):</label>
+            <input type="text" id="nickname">
+
+            <button id="confirm">Confirmar Agendamento</button>
+        </div>
+    </section>
+
+    <!-- Rodapé -->
+    <footer class="footer">
+        <p>&copy; 2024 Magrelo Barbershop. Todos os direitos reservados.</p>
+    </footer>
+
+    <script src="main.js"></script>
+</body>
+</html>

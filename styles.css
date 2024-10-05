@@ -1,0 +1,181 @@
+/* Reseta estilos padrão */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    color: #fff;
+    background-color: #222;
+}
+
+/* Estilo do header e navegação */
+.header {
+    position: fixed;
+    width: 100%;
+    background-color: rgba(0, 0, 0, 0.8);
+    z-index: 1000;
+}
+
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 2rem;
+}
+
+.nav__list {
+    list-style: none;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.nav__item a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 1.1rem;
+}
+
+.nav__link.active-link {
+    color: #00bcd4;
+}
+
+/* Estilo da seção home (com o vídeo de fundo) */
+.home {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.home__video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -1;
+}
+
+.home__container {
+    text-align: center;
+}
+
+.home__title {
+    font-size: 3rem;
+    margin-bottom: 1rem;
+}
+
+.home__description {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.button__link {
+    padding: 0.75rem 1.5rem;
+    background-color: #00bcd4;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.button__link:hover {
+    background-color: #008ba3;
+}
+
+/* Seção de Nossos Barbeiros */
+.barbers {
+    padding: 4rem 0;
+    background-color: #222;
+    text-align: center;
+}
+
+.barbers__container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.barber__card {
+    background-color: #333;
+    padding: 2rem;
+    border-radius: 10px;
+    transition: transform 0.3s;
+}
+
+.barber__card:hover {
+    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+}
+
+.barber__image {
+    width: 100%;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+}
+
+.barber__card h3 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.rating {
+    color: #ffc107; /* Cor das estrelas */
+}
+
+.rating .star {
+    font-size: 1.5rem; /* Tamanho das estrelas */
+}
+
+.barber__card p {
+    margin-top: 0.5rem;
+}
+
+/* Seção de Agendamento */
+.services {
+    padding: 4rem 2rem;
+    background-color: #333;
+}
+
+.agend {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.agend label {
+    font-size: 1rem;
+}
+
+.agend select,
+.agend input {
+    padding: 0.5rem;
+    font-size: 1rem;
+    border-radius: 5px;
+}
+
+#confirm {
+    background-color: #00bcd4;
+    color: #fff;
+    border: none;
+    padding: 0.75rem;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+#confirm:hover {
+    background-color: #008ba3;
+}
+
+/* Rodapé */
+.footer {
+    text-align: center;
+    padding: 1rem 0;
+    background-color: rgba(0, 0, 0, 0.8);
+}
