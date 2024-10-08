@@ -1,181 +1,255 @@
-/* Reseta estilos padrão */
-* {
+/* Estilos Gerais */
+body {
+    font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
+    background-color: #f4f4f4;
 }
 
-body {
-    font-family: 'Arial', sans-serif;
-    color: #fff;
-    background-color: #222;
-}
-
-/* Estilo do header e navegação */
+/* Header e Navegação */
 .header {
-    position: fixed;
-    width: 100%;
-    background-color: rgba(0, 0, 0, 0.8);
-    z-index: 1000;
+    background-color: #333;
+    color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
 .nav {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem 2rem;
+    padding: 10px 20px;
+    flex-wrap: wrap;
+}
+
+.nav__brand {
+    font-size: 1.5em; /* Ajustando a fonte da marca */
 }
 
 .nav__list {
     list-style: none;
+    margin: 0;
+    padding: 0;
     display: flex;
-    gap: 1.5rem;
+}
+
+.nav__item {
+    margin-left: 20px;
 }
 
 .nav__item a {
-    text-decoration: none;
     color: #fff;
-    font-size: 1.1rem;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s;
 }
 
-.nav__link.active-link {
-    color: #00bcd4;
+.nav__item a:hover {
+    color: #f39c12;
 }
 
-/* Estilo da seção home (com o vídeo de fundo) */
+/* Seção Home com Vídeo de Fundo */
 .home {
-    height: 100vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
     position: relative;
+    overflow: hidden;
 }
 
 .home__video {
+    width: 100%;
+    height: 100vh;
+    object-fit: cover;
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
     z-index: -1;
 }
 
 .home__container {
+    position: relative;
     text-align: center;
+    color: white;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh; /* Altura total da seção */
 }
 
 .home__title {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.home__description {
-    font-size: 1.5rem;
-    margin-bottom: 2rem;
+    font-size: 4em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
 .button__link {
-    padding: 0.75rem 1.5rem;
-    background-color: #00bcd4;
-    color: #fff;
+    background-color: #f39c12;
+    color: white;
+    padding: 10px 20px;
     text-decoration: none;
     border-radius: 5px;
+    font-size: 1.2em;
     transition: background-color 0.3s;
 }
 
 .button__link:hover {
-    background-color: #008ba3;
+    background-color: #e67e22;
+}
+
+/* Seção do Carrossel */
+.carousel {
+    padding: 20px;
+    text-align: center;
+}
+
+.carousel__container {
+    display: flex;
+    overflow: hidden;
+    position: relative;
+}
+
+.carousel__slide {
+    min-width: 100%;
+    transition: transform 0.5s ease;
+}
+
+.carousel__image {
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+    object-fit: cover; /* Ajusta as imagens sem cortá-las */
+}
+
+/* Controles do Carrossel */
+.carousel__controls {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.carousel__button {
+    background-color: rgba(255, 255, 255, 0.8);
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    font-size: 2em;
+    transition: background-color 0.3s;
+}
+
+.carousel__button:hover {
+    background-color: rgba(255, 255, 255, 1);
 }
 
 /* Seção de Nossos Barbeiros */
 .barbers {
-    padding: 4rem 0;
-    background-color: #222;
-    text-align: center;
+    padding: 20px;
 }
 
 .barbers__container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-top: 2rem;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
 .barber__card {
-    background-color: #333;
-    padding: 2rem;
-    border-radius: 10px;
+    width: 30%;
+    margin: 10px;
+    text-align: center;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    overflow: hidden;
+    background-color: #fff;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
 }
 
 .barber__card:hover {
-    transform: scale(1.05); /* Efeito de zoom ao passar o mouse */
+    transform: scale(1.05);
 }
 
 .barber__image {
     width: 100%;
-    border-radius: 10px;
-    margin-bottom: 1rem;
+    height: auto;
 }
 
-.barber__card h3 {
-    font-size: 1.5rem;
-    margin-bottom: 0.5rem;
+/* Seção de Portfólio */
+.portfolio {
+    padding: 20px;
 }
 
-.rating {
-    color: #ffc107; /* Cor das estrelas */
-}
-
-.rating .star {
-    font-size: 1.5rem; /* Tamanho das estrelas */
-}
-
-.barber__card p {
-    margin-top: 0.5rem;
-}
-
-/* Seção de Agendamento */
-.services {
-    padding: 4rem 2rem;
-    background-color: #333;
-}
-
-.agend {
+.portfolio__container {
     display: flex;
-    flex-direction: column;
-    gap: 1rem;
-    margin-top: 2rem;
+    justify-content: space-around;
+    flex-wrap: wrap;
 }
 
-.agend label {
-    font-size: 1rem;
+.portfolio__item {
+    width: 30%;
+    margin: 10px;
+    overflow: hidden;
 }
 
-.agend select,
-.agend input {
-    padding: 0.5rem;
-    font-size: 1rem;
-    border-radius: 5px;
+.portfolio__image {
+    width: 100%;
+    height: auto;
 }
 
-#confirm {
-    background-color: #00bcd4;
-    color: #fff;
-    border: none;
-    padding: 0.75rem;
-    cursor: pointer;
-    transition: background-color 0.3s;
-}
-
-#confirm:hover {
-    background-color: #008ba3;
+/* Seção de Contato */
+.contact {
+    padding: 20px;
+    text-align: center;
 }
 
 /* Rodapé */
 .footer {
     text-align: center;
-    padding: 1rem 0;
-    background-color: rgba(0, 0, 0, 0.8);
+    padding: 10px 0;
+    background-color: #333;
+    color: white;
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav__item {
+        margin: 10px 0;
+    }
+
+    .home__title {
+        font-size: 2.5em; /* Reduzindo o tamanho da fonte para mobile */
+    }
+
+    .barber__card {
+        width: 80%; /* Aumentando a largura dos cards em mobile */
+        margin: 10px auto;
+    }
+
+    .portfolio__item {
+        width: 80%; /* Aumentando a largura das imagens em mobile */
+        margin: 10px auto;
+    }
+
+    .carousel__controls {
+        flex-direction: column; /* Mudando a direção dos botões no carrossel */
+        justify-content: center;
+    }
+
+    .carousel__button {
+        font-size: 1.5em; /* Reduzindo o tamanho dos botões para mobile */
+    }
+}
+
+@media (max-width: 480px) {
+    .home__title {
+        font-size: 2em; /* Ajustando ainda mais para telas pequenas */
+    }
+
+    .button__link {
+        font-size: 1em; /* Reduzindo o tamanho do botão */
+        padding: 8px 16px;
+    }
 }

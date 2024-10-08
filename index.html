@@ -3,8 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magrelo Barbershop</title>
+    <title>Magrelo Barbershop - Corte com os melhores barbeiros de São Paulo</title>
+    <meta name="description" content="Magrelo Barbershop - Onde seu estilo encontra a tradição. Agende seu corte com nossos barbeiros especializados.">
     <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
     <!-- Header e Navegação -->
@@ -17,113 +19,118 @@
                 <li class="nav__item"><a href="#home">Home</a></li>
                 <li class="nav__item"><a href="#services">Serviços</a></li>
                 <li class="nav__item"><a href="#barbers">Barbeiros</a></li>
+                <li class="nav__item"><a href="#portfolio">Portfólio</a></li>
                 <li class="nav__item"><a href="#contact">Contato</a></li>
             </ul>
         </nav>
     </header>
 
-    <!-- Seção Home com Vídeo de Fundo -->
-    <section id="home" class="home">
-        <video class="home__video" autoplay muted loop>
-            <source src="imagens/IMG_5226.m4v" type="video/mp4">
-          
-        </video>
-        <div class="home__container">
-            <h1 class="home__title">Bem-vindo à Magrelo Barbershop</h1>
-            <p class="home__description">Onde seu estilo encontra a tradição.</p>
-            <a href="#services" class="button__link">Agende seu corte</a>
-        </div>
-    </section>
-
-    <!-- Seção de Nossos Barbeiros -->
-    <section id="barbers" class="barbers">
-        <h2 class="section__title">Nossos Barbeiros</h2>
-        <div class="barbers__container">
-            <div class="barber__card">
-                <img src="barber1.jpg" alt="Barbeiro Magrelo" class="barber__image">
-                <h3>Magrelo</h3>
-                <div class="rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                </div>
-                <p>Especialidades: Corte Clássico, Barba, Estilo Moderno</p>
+    <main>
+        <!-- Seção Home com Vídeo de Fundo -->
+        <section id="home" class="home">
+            <video class="home__video" autoplay muted loop>
+                <source src="imagens/IMG_5226.m4v" type="video/mp4">
+            </video>
+            <div class="home__container">
+                <h1 class="home__title">Bem-vindo à Magrelo Barbershop</h1>
+                <p class="home__description">Onde seu estilo encontra a tradição.</p>
+                <a href="#services" class="button__link">Agende seu corte</a>
             </div>
-            <div class="barber__card">
-                <img src="barber2.jpg" alt="Barbeiro Ney" class="barber__image">
-                <h3>Ney</h3>
-                <div class="rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
+        </section>
+
+        <!-- Seção do Carrossel -->
+        <section id="portfolio" class="carousel">
+            <div class="carousel__container">
+                <div class="carousel__slide">
+                    <img src="imagens/IMGC1.jpeg" alt="Corte Clássico" class="carousel__image">
                 </div>
-                <p>Especialidades: Corte de Cabelo, Barba, Design de Sobrancelhas</p>
-            </div>
-            <div class="barber__card">
-                <img src="barber3.jpg" alt="Barbeiro Darkson" class="barber__image">
-                <h3>Darkson</h3>
-                <div class="rating">
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
-                    <span class="star">★</span>
+                <div class="carousel__slide">
+                    <img src="imagens/IMGC4.jpeg" alt="Corte Moderno" class="carousel__image">
                 </div>
-                <p>Especialidades: Corte Estiloso, Barba, Descoloração</p>
+                <div class="carousel__slide">
+                    <img src="imagens/IMG_8705.jpeg" alt="Estilo Barba" class="carousel__image">
+                </div>
+                <div class="carousel__slide">
+                    <img src="imagens/IMGC3.jpeg" alt="Estilo Barba" class="carousel__image">
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
 
-    <!-- Seção de Agendamento -->
-    <section id="services" class="services">
-        <h2 class="section__title">Agende seu Corte</h2>
-        <div class="agend">
-            <label for="service">Selecione o serviço:</label>
-            <select id="service">
-                <option>Corte de Cabelo</option>
-                <option>Barba</option>
-                <option>Corte e Barba</option>
-            </select>
+        <!-- Seção de Nossos Barbeiros -->
+        <section id="barbers" class="barbers">
+            <h2 class="section__title">Nossos Barbeiros</h2>
+            <div class="barbers__container">
+                <div class="barber__card">
+                    <img src="imagens/IMGMagrello.jpeg" alt="Barbeiro Magrelo" class="barber__image">
+                    <h3>Magrelo</h3>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p>Especialidades: Corte Clássico, Barba, Estilo Moderno</p>
+                </div>
+                <div class="barber__card">
+                    <img src="imagens/IMGney.jpeg" alt="Barbeiro Ney" class="barber__image">
+                    <h3>Ney</h3>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p>Especialidades: Corte de Cabelo, Barba, Design de Sobrancelhas</p>
+                </div>
+                <div class="barber__card">
+                    <img src="imagens/IMGBruno.jpeg" alt="Barbeiro Darkson" class="barber__image">
+                    <h3>Darkson</h3>
+                    <div class="rating">
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                        <span class="star">★</span>
+                    </div>
+                    <p>Especialidades: Corte Estiloso, Barba, Descoloração</p>
+                </div>
+            </div>
+        </section>
 
-            <label for="barber">Selecione o barbeiro:</label>
-            <select id="barber">
-                <option>Magrelo</option>
-                <option>Ney</option>
-                <option>Darkson</option>
-            </select>
+        <!-- Seção de Portfólio -->
+        <section class="portfolio">
+            <h2 class="section__title">Nosso Portfólio</h2>
+            <div class="portfolio__container">
+                <div class="portfolio__item">
+                    <img src="imagens/IMGC4.jpeg" alt="Imagem 1" class="portfolio__image">
+                </div>
+                <div class="portfolio__item">
+                    <img src="imagens/IMGC1.jpeg" alt="Imagem 2" class="portfolio__image">
+                </div>
+                <div class="portfolio__item">
+                    <img src="imagens/IMGC3.jpeg" alt="Imagem 3" class="portfolio__image">
+                </div>
+                <div class="portfolio__item">
+                    <img src="imagens/imgc5.jpeg" alt="Imagem 4" class="portfolio__image">
+                </div>
+                <div class="portfolio__item">
+                    <img src="imagens/IMGC2.jpeg" alt="Imagem 5" class="portfolio__image">
+                </div>
+            </div>
+        </section>
 
-            <label for="date">Escolha a data:</label>
-            <input type="date" id="date">
-
-            <label for="time">Escolha o horário:</label>
-            <input type="time" id="time">
-
-            <h3>Cadastro do Cliente:</h3>
-            <label for="name">Nome:</label>
-            <input type="text" id="name" required>
-
-            <label for="phone">Telemóvel:</label>
-            <input type="tel" id="phone" required>
-
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" required>
-
-            <label for="password">Criar Senha:</label>
-            <input type="password" id="password" required>
-
-            <label for="birthday">Data de Aniversário (opcional):</label>
-            <input type="date" id="birthday">
-
-            <label for="nickname">Apelido ou Referência (opcional):</label>
-            <input type="text" id="nickname">
-
-            <button id="confirm">Confirmar Agendamento</button>
-        </div>
-    </section>
+        <!-- Seção de Contato -->
+        <section id="contact" class="contact">
+            <h2 class="section__title">Entre em Contato</h2>
+            <div class="contact__info">
+                <p><i class="fas fa-phone-alt"></i> +55 11 91234-5678</p>
+                <p><i class="fas fa-envelope"></i> contato@magrelobarbershop.com</p>
+                <p><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - São Paulo, SP</p>
+            </div>
+        </section>
+    </main>
 
     <!-- Rodapé -->
     <footer class="footer">

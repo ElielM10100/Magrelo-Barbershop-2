@@ -1,39 +1,35 @@
-$(document).ready(function () {
-    let total = 0;
+// Aguarda o carregamento do DOM
+document.addEventListener("DOMContentLoaded", () => {
+    // Exemplo: Adiciona um evento de clique ao botão de agendar corte
+    const scheduleButton = document.querySelector('.button__link');
+    
+    if (scheduleButton) {
+        scheduleButton.addEventListener('click', (e) => {
+            e.preventDefault(); // Evita o comportamento padrão do link
+            // Aqui você pode adicionar lógica para redirecionar ou abrir um modal para agendamento
+            alert("Função de agendamento ainda não implementada.");
+        });
+    }
 
-    $('.select-service').click(function () {
-        const service = $(this).closest('.service');
-        const price = parseFloat(service.data('price'));
-        total += price;
+    // Exemplo: Carrossel simples
+    let currentIndex = 0;
+    const slides = document.querySelectorAll('.carousel__slide');
+    
+    function showSlide(index) {
+        slides.forEach((slide, i) => {
+            slide.style.display = (i === index) ? 'block' : 'none';
+        });
+    }
+    
+    function nextSlide() {
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
 
-        // Mostrar o total na tela
-        $('#total-value').text(total.toFixed(2));
+    // Mostra o primeiro slide inicialmente
+    showSlide(currentIndex);
 
-        // Esconder o botão de selecionar e mostrar o de remover
-        $(this).hide();
-        service.find('.remove-service').removeClass('d-none');
-    });
-
-    $('.remove-service').click(function () {
-        const service = $(this).closest('.service');
-        const price = parseFloat(service.data('price'));
-        total -= price;
-
-        // Mostrar o total na tela
-        $('#total-value').text(total.toFixed(2));
-
-        // Esconder o botão de remover e mostrar o de selecionar
-        $(this).hide();
-        service.find('.select-service').show();
-    });
-
-    $('#agendamento-form').submit(function (e) {
-        e.preventDefault();
-        alert('Agendamento realizado com sucesso!');
-    });
-
-    // Função para minimizar/expandir os cards de serviços
-    $('.toggle-card').click(function () {
-        $(this).closest('.card').find('.card-body').slideToggle();
-    });
+    // Muda o slide a cada 3 segundos
+    setInterval(nextSlide, 3000);
 });
+    
