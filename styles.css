@@ -1,255 +1,651 @@
-/* Estilos Gerais */
-body {
-    font-family: Arial, sans-serif;
+/* Reset e ajustes básicos */
+* {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
 }
 
-/* Header e Navegação */
+body {
+    font-family: 'Merriweather', serif;
+    line-height: 1.6;
+    background-color: #1a1a1a;
+    color: #f0e8d0;
+}
+
+/* Estilo do cabeçalho */
 .header {
-    background-color: #333;
-    color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+    display: flex;
+    align-items: center;
+    justify-content: center; /* Centraliza todo o conteúdo horizontalmente */
+    background-color: #0d0d0d;
+    padding: 20px 40px;
+    color: white;
 }
 
+/* Logo da barbearia */
+.header__logo {
+    font-size: 2em;
+    font-weight: bold;
+    color: #b89d64;
+    font-family: 'Playfair Display', serif;
+    margin-bottom: 15px; /* Adiciona espaço abaixo da logo */
+}
+
+/* Barra de navegação */
 .nav {
     display: flex;
-    justify-content: space-between;
     align-items: center;
-    padding: 10px 20px;
-    flex-wrap: wrap;
-}
-
-.nav__brand {
-    font-size: 1.5em; /* Ajustando a fonte da marca */
 }
 
 .nav__list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
     display: flex;
+    list-style: none;
+    gap: 30px; /* Espaçamento entre os itens */
 }
 
-.nav__item {
-    margin-left: 20px;
-}
-
-.nav__item a {
-    color: #fff;
+.nav__list a {
     text-decoration: none;
+    color: #f0e8d0;
+    font-size: 18px;
     font-weight: bold;
-    transition: color 0.3s;
-}
-
-.nav__item a:hover {
-    color: #f39c12;
-}
-
-/* Seção Home com Vídeo de Fundo */
-.home {
+    padding: 10px 15px;
+    transition: background-color 0.3s, color 0.3s, box-shadow 0.3s;
     position: relative;
-    overflow: hidden;
 }
 
+.nav__list a::before {
+    content: ''; 
+    display: inline-block;
+    width: 16px;
+    height: 16px;
+    margin-right: 8px;
+    background-image: url('path/to/icon.png'); /* Substitua pelo caminho do seu ícone */
+    background-size: contain;
+    background-repeat: no-repeat;
+}
+
+/* Efeito hover nos links da navegação */
+.nav__list a:hover {
+    background-color: #b89d64;
+    border-radius: 5px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3); /* Efeito de elevação */
+}
+
+/* Seção Home */
 .home__video {
     width: 100%;
     height: 100vh;
     object-fit: cover;
-    position: absolute;
-    top: 0;
-    left: 0;
-    z-index: -1;
+    filter: brightness(0.4);
 }
 
 .home__container {
-    position: relative;
-    text-align: center;
-    color: white;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    height: 100vh; /* Altura total da seção */
-}
-
-.home__title {
-    font-size: 4em;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.button__link {
-    background-color: #f39c12;
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-size: 1.2em;
-    transition: background-color 0.3s;
-}
-
-.button__link:hover {
-    background-color: #e67e22;
-}
-
-/* Seção do Carrossel */
-.carousel {
-    padding: 20px;
-    text-align: center;
-}
-
-.carousel__container {
-    display: flex;
-    overflow: hidden;
-    position: relative;
-}
-
-.carousel__slide {
-    min-width: 100%;
-    transition: transform 0.5s ease;
-}
-
-.carousel__image {
-    width: 100%;
-    height: auto;
-    max-height: 400px;
-    object-fit: cover; /* Ajusta as imagens sem cortá-las */
-}
-
-/* Controles do Carrossel */
-.carousel__controls {
     position: absolute;
     top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    transform: translateY(-50%);
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff;
+    text-align: center;
 }
 
-.carousel__button {
-    background-color: rgba(255, 255, 255, 0.8);
+/* Botões */
+.button__link,
+.button__submit {
+    background: #b89d64;
+    color: #fff;
+    padding: 12px 40px;
+    text-decoration: none;
+    border-radius: 25px;
     border: none;
-    padding: 10px;
     cursor: pointer;
-    font-size: 2em;
-    transition: background-color 0.3s;
+    transition: background 0.3s, transform 0.2s;
 }
 
-.carousel__button:hover {
-    background-color: rgba(255, 255, 255, 1);
+.button__link:hover,
+.button__submit:hover {
+    background: #d3b774;
+    transform: scale(1.05);
 }
 
-/* Seção de Nossos Barbeiros */
+/* Seção de barbeiros */
 .barbers {
-    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 50px 20px;
+    background-color: #1f1f1f;
+}
+
+.barbers__title {
+    font-size: 2.5em;
+    margin-bottom: 25px;
+    color: #b89d64;
+    text-align: center;
 }
 
 .barbers__container {
     display: flex;
-    justify-content: space-around;
     flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    width: 100%;
+    max-width: 1200px;
 }
 
 .barber__card {
-    width: 30%;
-    margin: 10px;
-    text-align: center;
-    border: 1px solid #ddd;
-    border-radius: 5px;
+    width: calc(33.33% - 20px);
+    max-width: 300px;
+    background: #837f7f;
+    border-radius: 15px;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    background-color: #fff;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s;
+    text-align: center;
 }
 
 .barber__card:hover {
-    transform: scale(1.05);
+    transform: translateY(-8px);
 }
 
 .barber__image {
     width: 100%;
-    height: auto;
+    border-radius: 15px 15px 0 0;
 }
 
-/* Seção de Portfólio */
-.portfolio {
-    padding: 20px;
+.barber__name {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin: 15px 0;
 }
 
-.portfolio__container {
+/* Seção de serviços */
+.services {
+    padding: 70px 40px;
+    text-align: center;
+    background-color: #494946; /* Cor de fundo dos serviços */
+    border-radius: 10px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 auto;
+}
+
+.services h2 {
+    font-size: 3em;
+    margin-bottom: 30px;
+    color: #b89d64;
+    font-family: 'Playfair Display', serif;
+}
+
+.services__list {
     display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
+    flex-direction: column;
+    align-items: center;
+    gap: 25px;
 }
 
-.portfolio__item {
-    width: 30%;
-    margin: 10px;
+.services__list h3 {
+    font-size: 2em;
+    color: #f0e8d0;
+    font-family: 'Merriweather', serif;
+    padding-left: 30px; /* Espaçamento para texto ficar alinhado */
+}
+
+/* Estilo do portfólio */
+.portfolio {
+    padding: 60px 20px;
+    text-align: center;
+    background-color: #1a1a1a;
+}
+
+.portfolio__slider {
+    max-width: 800px;
+    margin: auto;
+    display: flex;
     overflow: hidden;
+    position: relative;
 }
 
 .portfolio__image {
     width: 100%;
-    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease-in-out;
 }
 
-/* Seção de Contato */
-.contact {
-    padding: 20px;
-    text-align: center;
+.portfolio__image:hover {
+    transform: scale(1.05);
 }
 
 /* Rodapé */
 .footer {
-    text-align: center;
-    padding: 10px 0;
-    background-color: #333;
+    background-color: #0d0d0d;
     color: white;
+    padding: 25px 40px;
+    text-align: center;
+    font-size: 0.9em;
+    box-shadow: 0 -3px 8px rgba(0, 0, 0, 0.2);
 }
 
-/* Responsividade */
+.footer__link {
+    color: #b89d64;
+    margin: 0 15px;
+}
+
+/* Estilo Responsivo */
+
+/* Tablets */
+@media (max-width: 1024px) {
+    .nav__list {
+        flex-direction: column;
+        align-items: center;
+        gap: 15px;
+    }
+
+    .barber__card {
+        width: calc(50% - 20px);
+    }
+}
+
+/* Dispositivos Médios */
 @media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
     .nav__list {
         flex-direction: column;
         align-items: center;
     }
 
-    .nav__item {
-        margin: 10px 0;
-    }
-
-    .home__title {
-        font-size: 2.5em; /* Reduzindo o tamanho da fonte para mobile */
+    .home__container {
+        padding: 0 20px;
     }
 
     .barber__card {
-        width: 80%; /* Aumentando a largura dos cards em mobile */
-        margin: 10px auto;
+        width: calc(100% - 20px);
     }
 
-    .portfolio__item {
-        width: 80%; /* Aumentando a largura das imagens em mobile */
-        margin: 10px auto;
+    .services h2 {
+        font-size: 2.5em;
     }
 
-    .carousel__controls {
-        flex-direction: column; /* Mudando a direção dos botões no carrossel */
-        justify-content: center;
-    }
-
-    .carousel__button {
-        font-size: 1.5em; /* Reduzindo o tamanho dos botões para mobile */
+    .services__list h3 {
+        font-size: 1.8em;
     }
 }
 
+/* Smartphones */
 @media (max-width: 480px) {
-    .home__title {
-        font-size: 2em; /* Ajustando ainda mais para telas pequenas */
+    .header__logo {
+        font-size: 1.4em;
     }
 
-    .button__link {
-        font-size: 1em; /* Reduzindo o tamanho do botão */
-        padding: 8px 16px;
+    .button__link,
+    .button__submit {
+        padding: 10px 20px;
     }
+
+    .barbers__title {
+        font-size: 2em;
+    }
+
+    .services h2 {
+        font-size: 2em;
+    }
+}
+
+/* Estilos do menu de hambúrguer */
+.nav__toggle {
+    display: none; /* Esconde por padrão */
+    flex-direction: column;
+    cursor: pointer;
+}
+
+.nav__toggle .bar {
+    height: 3px;
+    width: 25px;
+    background-color: #000; /* Cor das barras */
+    margin: 4px 0;
+}
+
+/* Esconder o menu em telas pequenas */
+.nav__list {
+    display: none; /* Oculta o menu por padrão */
+    flex-direction: column; /* Coloca os itens em coluna */
+    position: absolute;
+    top: 60px; /* Ajuste conforme necessário */
+    left: 0;
+    background-color: rgb(34, 33, 33); /* Cor de fundo do menu */
+    width: 100%;
+    z-index: 10; /* Garante que o menu fique acima de outros elementos */
+}
+
+/* Exibir o menu quando ativo */
+.nav__list.active {
+    display: flex; /* Exibe o menu */
+}
+
+/* Estilos para telas grandes */
+@media (min-width: 768px) {
+    .nav__toggle {
+        display: none; /* Esconde o toggle em telas grandes */
+    }
+
+    .nav__list {
+        display: flex; /* Mostra o menu normalmente */
+        position: static; /* Remove posição absoluta */
+        flex-direction: row; /* Mantém na horizontal */
+    }
+}
+
+
+
+
+#nossos-servicos {
+    padding: 20px;
+    background-color: #221f1f;
+    text-align: center;
+}
+
+#nossos-servicos h2 {
+    color: #9b9595;
+}
+
+#nossos-servicos p {
+    color: #666;
+}
+
+.servicos-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+}
+
+.servico {
+    background-color: #D6C16A; /* Dourado com um toque de cinza */
+
+    border: 1px solid #000000;
+    border-radius: 10px;
+    margin: 10px;
+    padding: 15px;
+    width: 150px; /* Ajuste conforme necessário */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.servico:hover {
+    transform: scale(1.05);
+}
+
+.servico-icon {
+    width: 50px; /* Ajuste conforme necessário */
+    height: 50px; /* Ajuste conforme necessário */
+}
+
+.servico h3 {
+    margin: 10px 0 5px;
+    color: #333;
+}
+
+.servico p {
+    color: #404041;
+    font-weight: bold;
+}
+
+#nossos-servicos h4 {
+    color: #666;
+}
+
+#nossos-servicos ul {
+    list-style-type: none;
+    padding: 0;
+    color: #666;
+}
+
+
+.servico-icon {
+    font-size: 40px; /* Ajuste o tamanho do ícone */
+    color: #1a1b1b; /* Cor dos ícones */
+    margin-bottom: 10px; /* Espaço abaixo do ícone */
+}
+
+
+
+/* Estilo geral para a seção de pacotes */
+.pacotes-container,
+.observacoes-container,
+.horario {
+    background-color: #333; /* Cor de fundo escura */
+    padding: 20px; /* Espaçamento interno */
+    border-radius: 10px; /* Bordas arredondadas */
+    margin: 20px 0; /* Margem externa */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+}
+
+/* Título da seção */
+.pacotes-container h4,
+.observacoes-container h4,
+.horario h2 {
+    font-size: 1.5em; /* Tamanho da fonte */
+    margin-bottom: 10px; /* Espaço abaixo do título */
+    color: #fff; /* Cor do texto branco para contraste */
+}
+
+/* Listas dentro da seção de pacotes e observações */
+.pacotes-container ul,
+.observacoes-container ul {
+    list-style-type: none; /* Remove marcadores da lista */
+    padding: 0; /* Remove espaçamento */
+}
+
+/* Itens de lista */
+.pacotes-container li,
+.observacoes-container li {
+    margin: 5px 0; /* Espaçamento entre itens */
+    font-size: 1.1em; /* Tamanho da fonte dos itens */
+    color: #fff; /* Cor do texto branco para melhor legibilidade */
+}
+
+/* Estilo para a seção de horário */
+.horario p {
+    font-size: 1.2em; /* Tamanho da fonte para horários */
+    color: #fff; /* Cor do texto branco */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .pacotes-container,
+    .observacoes-container,
+    .horario {
+        padding: 15px; /* Reduz o padding em telas menores */
+    }
+
+    .pacotes-container h4,
+    .observacoes-container h4,
+    .horario h2 {
+        font-size: 1.2em; /* Reduz o tamanho do título */
+    }
+
+    .pacotes-container li,
+    .observacoes-container li,
+    .horario p {
+        font-size: 1em; /* Tamanho da fonte dos itens na lista */
+    }
+}
+
+
+
+.agendamento {
+    background-color: #333; /* Cor de fundo */
+    color: #fff; /* Cor do texto */
+    padding: 20px;
+}
+
+.servicos-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.servico-card {
+    background-color: #444; /* Fundo dos cards */
+    border-radius: 8px;
+    padding: 15px;
+    text-align: center;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.servico-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+}
+
+.servico-icon {
+    font-size: 40px;
+    color: #f9c74f; /* Cor do ícone */
+}
+
+.agendar-btn {
+    background-color: #f9c74f; /* Cor do botão */
+    color: #333; /* Cor do texto do botão */
+    border: none;
+    border-radius: 5px;
+    padding: 10px 15px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.agendar-btn:hover {
+    background-color: #ffd60a; /* Cor do botão ao passar o mouse */
+}
+
+
+
+
+
+
+/* Estilos gerais */
+body {
+    font-family: 'Roboto', sans-serif; /* Fonte mais moderna */
+    background-color: #1a1a1a; /* Fundo mais escuro */
+    color: #f1f1f1; /* Texto claro para contraste */
+    margin: 0;
+    padding: 0;
+}
+
+/* Container centralizado */
+.container {
+    max-width: 800px; /* Aumentar o tamanho do container para preencher mais o espaço */
+    margin: 30px auto; /* Centraliza o container */
+    padding: 30px;
+    background: #333; /* Fundo escuro */
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Sombra mais forte */
+}
+
+/* Títulos e cabeçalhos */
+h2 {
+    text-align: center;
+    color: #d4af37; /* Cor dourada */
+    font-size: 28px; /* Tamanho maior */
+    font-family: 'Merriweather', serif; /* Fonte clássica para títulos */
+    margin-bottom: 20px;
+}
+
+/* Botões */
+button, .button__link {
+    background-color: #d4af37; /* Dourado para o botão */
+    color: #fff;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+button:hover, .button__link:hover {
+    background-color: #c5a431; /* Cor mais escura no hover */
+    transform: scale(1.05); /* Efeito de aumento */
+}
+
+/* Inputs e selects */
+select, input[type="text"], input[type="tel"], input[type="email"], input[type="date"], input[type="time"] {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #777; /* Borda mais suave */
+    border-radius: 8px;
+    background-color: #222;
+    color: #fff;
+    font-size: 16px;
+    margin-bottom: 15px;
+}
+
+select:focus, input[type="text"]:focus, input[type="tel"]:focus, input[type="email"]:focus, input[type="date"]:focus, input[type="time"]:focus {
+    outline: none;
+    border-color: #d4af37; /* Foco com borda dourada */
+}
+
+/* Localização - Estilo do mapa */
+#location iframe {
+    width: 100%;
+    height: 500px; /* Deixar o mapa maior */
+    border-radius: 10px;
+    border: none;
+}
+
+/* Estilo do resumo de agendamento */
+.summary, .confirmation {
+    background-color: #2a2a2a; /* Fundo mais escuro */
+    padding: 20px;
+    border-radius: 8px;
+    border: 1px solid #444;
+}
+
+.summary {
+    margin-top: 30px;
+}
+
+.confirmation {
+    background-color: #383838;
+}
+
+/* Responsividade para dispositivos móveis */
+@media (max-width: 600px) {
+    .container {
+        padding: 20px;
+    }
+
+    h2 {
+        font-size: 24px;
+    }
+
+    button, .button__link {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}.map-button {
+    display: inline-block;
+    margin-top: 10px;
+    padding: 10px 15px;
+    background-color: #000;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.map-button:hover {
+    background-color: #333;
+}
+
+.location__map iframe {
+    transition: transform 0.3s ease;
+}
+
+.location__map iframe:hover {
+    transform: scale(1.02);
 }

@@ -3,140 +3,222 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Magrelo Barbershop - Corte com os melhores barbeiros de São Paulo</title>
+    <title>Magrelo Barbershop</title>
     <meta name="description" content="Magrelo Barbershop - Onde seu estilo encontra a tradição. Agende seu corte com nossos barbeiros especializados.">
-    <link rel="stylesheet" href="styles.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="styles.css"> <!-- Seu CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+    <link rel="icon" href="imagens/LOG.jpg" type="image/x-icon">
 </head>
 <body>
-    <!-- Header e Navegação -->
+
     <header class="header">
+        <h1 class="header__logo">Magrelo Barbershop</h1>
         <nav class="nav">
-            <div class="nav__brand">
-                <h1>Magrelo Barbershop</h1>
+            <div class="nav__toggle" id="nav-toggle">
+                <span class="bar"></span>
+                <span class="bar"></span>
+                <span class="bar"></span>
             </div>
-            <ul class="nav__list">
-                <li class="nav__item"><a href="#home">Home</a></li>
-                <li class="nav__item"><a href="#services">Serviços</a></li>
-                <li class="nav__item"><a href="#barbers">Barbeiros</a></li>
-                <li class="nav__item"><a href="#portfolio">Portfólio</a></li>
-                <li class="nav__item"><a href="#contact">Contato</a></li>
+            <ul class="nav__list" id="nav-list">
+                <li><a href="#home"><i class="fas fa-home"></i> Home</a></li>
+                <li><a href="#services"><i class="fas fa-cut"></i> Serviços</a></li>
+                <li><a href="#barbers"><i class="fas fa-user-friends"></i> Barbeiros</a></li>
+                <li><a href="#portfolio"><i class="fas fa-images"></i> Portfólio</a></li>
+                <li><a href="#book"><i class="fas fa-calendar-alt"></i> Agendar</a></li>
             </ul>
         </nav>
     </header>
-
+    
     <main>
-        <!-- Seção Home com Vídeo de Fundo -->
         <section id="home" class="home">
             <video class="home__video" autoplay muted loop>
-                <source src="imagens/IMG_5226.m4v" type="video/mp4">
+                <source src="imagens/IMG_5226.mp4" type="video/mp4">
             </video>
-            <div class="home__container">
-                <h1 class="home__title">Bem-vindo à Magrelo Barbershop</h1>
-                <p class="home__description">Onde seu estilo encontra a tradição.</p>
-                <a href="#services" class="button__link">Agende seu corte</a>
+            <div class="home__container container"> 
+                <h1>Bem-vindo à Magrelo Barbershop</h1>
+                <p>Onde seu estilo encontra a tradição.</p>
+                <a href="agendamento.html" class="button__link">Agende seu corte</a> 
             </div>
         </section>
 
-        <!-- Seção do Carrossel -->
-        <section id="portfolio" class="carousel">
-            <div class="carousel__container">
-                <div class="carousel__slide">
-                    <img src="imagens/IMGC1.jpeg" alt="Corte Clássico" class="carousel__image">
-                </div>
-                <div class="carousel__slide">
-                    <img src="imagens/IMGC4.jpeg" alt="Corte Moderno" class="carousel__image">
-                </div>
-                <div class="carousel__slide">
-                    <img src="imagens/IMG_8705.jpeg" alt="Estilo Barba" class="carousel__image">
-                </div>
-                <div class="carousel__slide">
-                    <img src="imagens/IMGC3.jpeg" alt="Estilo Barba" class="carousel__image">
-                </div>
+        <section id="portfolio" class="portfolio container">
+            <h2>Portfólio</h2>
+            <div class="portfolio__slider">
+                <div><img src="imagens/IMG_1567[1].png" alt="Portfólio 1" class="portfolio__image"></div>
+                <div><img src="imagens/IMGC1.jpeg" alt="Portfólio 2" class="portfolio__image"></div>
+                <div><img src="imagens/IMGC4.jpeg" alt="Portfólio 3" class="portfolio__image"></div>
+                <div><img src="imagens/IMG_8705.jpeg" alt="Portfólio 4" class="portfolio__image"></div>
+                <div><img src="imagens/CR3.jpg" alt="Portfólio 5" class="portfolio__image"></div>
+                <div><img src="imagens/cR4.jpg" alt="Portfólio 6" class="portfolio__image"></div>
+                <div><img src="imagens/IMGC3.jpeg" alt="Portfólio 7" class="portfolio__image"></div>
             </div>
         </section>
 
-        <!-- Seção de Nossos Barbeiros -->
-        <section id="barbers" class="barbers">
-            <h2 class="section__title">Nossos Barbeiros</h2>
+        <script src="https://cdn.jsdelivr.net/npm/jquery@3.6.0/dist/jquery.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script>
+        $(document).ready(function(){
+            $('.portfolio__slider').slick({
+                slidesToShow: 3,
+                slidesToScroll: 1,
+                autoplay: true,
+                autoplaySpeed: 2000,
+                dots: true,
+                responsive: [
+                    {
+                        breakpoint: 768,
+                        settings: {
+                            slidesToShow: 1
+                        }
+                    },
+                    {
+                        breakpoint: 1024,
+                        settings: {
+                            slidesToShow: 2
+                        }
+                    }
+                ]
+            });
+        });
+        </script>
+
+        <section id="barbers" class="barbers container">
+            <h2>Nossos Barbeiros</h2>
             <div class="barbers__container">
                 <div class="barber__card">
                     <img src="imagens/IMGMagrello.jpeg" alt="Barbeiro Magrelo" class="barber__image">
                     <h3>Magrelo</h3>
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p>Especialidades: Corte Clássico, Barba, Estilo Moderno</p>
                 </div>
                 <div class="barber__card">
                     <img src="imagens/IMGney.jpeg" alt="Barbeiro Ney" class="barber__image">
                     <h3>Ney</h3>
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p>Especialidades: Corte de Cabelo, Barba, Design de Sobrancelhas</p>
                 </div>
                 <div class="barber__card">
                     <img src="imagens/IMGBruno.jpeg" alt="Barbeiro Darkson" class="barber__image">
                     <h3>Darkson</h3>
-                    <div class="rating">
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                        <span class="star">★</span>
-                    </div>
-                    <p>Especialidades: Corte Estiloso, Barba, Descoloração</p>
                 </div>
             </div>
         </section>
 
-        <!-- Seção de Portfólio -->
-        <section class="portfolio">
-            <h2 class="section__title">Nosso Portfólio</h2>
-            <div class="portfolio__container">
-                <div class="portfolio__item">
-                    <img src="imagens/IMGC4.jpeg" alt="Imagem 1" class="portfolio__image">
+        <section id="services">
+            <h2>Nossos Serviços</h2>
+            <p>Oferecemos uma variedade de serviços para atender às suas necessidades de beleza e cuidados pessoais. Confira nossa tabela de preços abaixo:</p>
+        
+            <div class="servicos-container">
+                <div class="servico">
+                    <i class="fas fa-cut servico-icon"></i>
+                    <h3>Corte</h3>
+                    <p>15€</p>
                 </div>
-                <div class="portfolio__item">
-                    <img src="imagens/IMGC1.jpeg" alt="Imagem 2" class="portfolio__image">
+                <div class="servico">
+                    <i class="fas fa-razor servico-icon"></i>
+                    <h3>Barba</h3>
+                    <p>10€</p>
                 </div>
-                <div class="portfolio__item">
-                    <img src="imagens/IMGC3.jpeg" alt="Imagem 3" class="portfolio__image">
+                <div class="servico">
+                    <i class="fas fa-eye servico-icon"></i>
+                    <h3>Sobrancelha</h3>
+                    <p>5€</p>
                 </div>
-                <div class="portfolio__item">
-                    <img src="imagens/imgc5.jpeg" alt="Imagem 4" class="portfolio__image">
+                <div class="servico">
+                    <i class="fas fa-cut servico-icon"></i>
+                    <h3>Corte e Barba</h3>
+                    <p>22€</p>
                 </div>
-                <div class="portfolio__item">
-                    <img src="imagens/IMGC2.jpeg" alt="Imagem 5" class="portfolio__image">
+                <div class="servico">
+                    <i class="fas fa-paint-brush servico-icon"></i>
+                    <h3>Madeixa</h3>
+                    <p>Sobre consulta€</p>
                 </div>
+                <div class="servico">
+                    <i class="fas fa-spa servico-icon"></i>
+                    <h3>Selagem</h3>
+                    <p>Sobre Consulta€</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-spa servico-icon"></i>
+                    <h3>Terapia Hindu</h3>
+                    <p>15€</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-paint-roller servico-icon"></i>
+                    <h3>Pigmentação na Barba</h3>
+                    <p>10€</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-mask servico-icon"></i>
+                    <h3>Limpeza Facial</h3>
+                    <p>10€</p>
+                </div>
+                <div class="servico">
+                    <i class="fas fa-razor servico-icon"></i>
+                    <h3>Barba Xpress</h3>
+                    <p>3€</p>
+                </div>
+            </div>
+
+            <div class="pacotes-container">
+                <h4>Pacotes</h4>
+                <p>Observação: Todos os pacotes têm validade de um mês a partir do primeiro corte.</p>
+                <ul>
+                    <li>Pacote 1: 3 Cortes - 39€</li>
+                    <li>Pacote 2: 4 Barbas - 32€</li>
+                    <li>Pacote 3: 2 Cortes + 2 Barbas - 41€</li>
+                    <li>Pacote 4: 2 Cortes + 3 Barbas - 50€</li>
+                </ul>
+            </div>
+        
+            <div class="observacoes-container">
+                <h4>Observações:</h4>
+                <ul>
+                    <li>Todos os preços estão sujeitos a alterações.</li>
+                    <li>Consulte-nos para mais informações sobre nossos serviços e pacotes especiais!</li>
+                </ul>
             </div>
         </section>
 
-        <!-- Seção de Contato -->
-        <section id="contact" class="contact">
-            <h2 class="section__title">Entre em Contato</h2>
-            <div class="contact__info">
-                <p><i class="fas fa-phone-alt"></i> +55 11 91234-5678</p>
-                <p><i class="fas fa-envelope"></i> contato@magrelobarbershop.com</p>
-                <p><i class="fas fa-map-marker-alt"></i> Rua Exemplo, 123 - São Paulo, SP</p>
-            </div>
-        </section>
-    </main>
 
-    <!-- Rodapé -->
-    <footer class="footer">
-        <p>&copy; 2024 Magrelo Barbershop. Todos os direitos reservados.</p>
+<!-- Seção de Localização -->
+<section id="location" class="location container">
+    <h2>Localização</h2>
+    <p>Visite-nos em nosso endereço e descubra o que temos para oferecer.</p>
+
+    <div class="location__map">
+        <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1194.606035333047!2d-8.4333658!3d41.5513616!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd24fee7686440b1%3A0x42a6a55505fabb80!2sR.%20Irm%C3%A3os%20Roby%20206%2C%204700-412%20Braga%2C%20Portugal!5e0!3m2!1sen!2spt!4v1670939496020!5m2!1sen!2spt"
+            width="100%" height="450" frameborder="0" style="border:0;" allowfullscreen=""
+            aria-hidden="false" tabindex="0"></iframe>
+        <a href="https://www.google.com/maps/place/R.+Irmãos+Roby+206,+4700-412+Braga,+Portugal" target="_blank" class="map-button">Abrir no Google Maps</a>
+    </div>
+    
+
+    <div class="location__details">
+        <p><strong>Endereço:</strong> MAGRELO BARBERSHOP, R. Irmãos Roby 206, 4700-412 Braga, Portugal</p>
+        <p><strong>Horário de Funcionamento:</strong> Segunda a Sexta - 9h às 19h</p>
+        <p><strong>Sábado:</strong> 9h às 16h</p>
+    </div>
+</section>
+
+
+    
+    <footer>
+        <div class="footer__container container">
+            <div class="footer__logo">
+                <img src="imagens/logo.png" alt="Magrelo Barbershop Logo" width="50">
+                <p>&copy; 2024 Magrelo Barbershop - Todos os direitos reservados</p>
+            </div>
+            <div class="footer__social">
+                <a href="https://wa.me/1234567890" class="social__link" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                <a href="https://www.instagram.com/magrelo_barbershop" class="social__link" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.facebook.com/magrelo_barbershop" class="social__link" target="_blank"><i class="fab fa-facebook"></i></a>
+            </div>
+        </div>
     </footer>
 
-    <script src="main.js"></script>
+    <script src="main.js"></script> <!-- Seu JS -->
 </body>
 </html>

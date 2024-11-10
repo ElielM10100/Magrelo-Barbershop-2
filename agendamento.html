@@ -1,11 +1,139 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <link rel="stylesheet" href="Style.css"> <!--Link de outro arq feito em CSS de putra parte -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"> <!-- Link para Font Awesome -->
+    <link rel="icon" href="imagens/LOG.jpg" type="image/x-icon">
+    <title>Agendamento de Corte - Magrelo Barbershop</title>
 </head>
 <body>
+    <section id="book" class="book container">
+        <h2><i class="fas fa-cut"></i> Agendar Corte</h2>
+        <form id="booking-form" class="booking-form">
+            <div class="form-group">
+                <label for="service"><i class="fas fa-scissors"></i> Selecione um Serviço:</label>
+                <select id="service" name="service" required>
+                    <option value="">Escolha...</option>
+                    <option value="corte" data-preco="15">Corte - 15€</option>
+                    <option value="barba" data-preco="15">Barba - 10€</option>
+                    <option value="corte-barba" data-preco="30">Corte e Barba - 22€</option>
+                    <option value="sobrancelha" data-preco="10">Sobrancelha - 5€</option>
+                    <option value="pigmentacao" data-preco="25">Pigmentação na Barba - 10€</option>
+                    <option value="lavagem" data-preco="10">Lavagem de Cabelo - 10€</option>
+                    <option value="estilo" data-preco="20">Estilo - 20€</option>
+                    <option value="permanente" data-preco="50">Permanente - 50€</option>
+                </select>
+            </div>
+            
+            <div class="form-group">
+                <label for="barber"><i class="fas fa-user"></i> Escolha um Barbeiro:</label>
+                <select id="barber" name="barber" required>
+                    <option value="">Escolha...</option>
+                    <option value="magrelo">Magrelo</option>
+                    <option value="ney">Ney</option>
+                    <option value="darkson">Darkson</option>
+                </select>
+            </div>
     
+            <div class="form-group">
+                <label for="date"><i class="fas fa-calendar-alt"></i> Data:</label>
+                <input type="date" id="date" name="date" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="time"><i class="fas fa-clock"></i> Hora:</label>
+                <input type="time" id="time" name="time" required>
+            </div>
+    
+            <div class="form-group">
+                <label for="name"><i class="fas fa-user-circle"></i> Nome:</label>
+                <input type="text" id="name" name="name" required placeholder="Seu Nome">
+            </div>
+    
+            <div class="form-group">
+                <label for="phone"><i class="fas fa-phone"></i> Telefone:</label>
+                <input type="tel" id="phone" name="phone" required placeholder="Seu Telefone">
+            </div>
+    
+            <div class="form-group">
+                <label for="email"><i class="fas fa-envelope"></i> E-mail:</label>
+                <input type="email" id="email" name="email" required placeholder="Seu E-mail">
+            </div>
+    
+            <div class="form-group">
+                <label for="birthdate"><i class="fas fa-birthday-cake"></i> Data de Nascimento (opcional):</label>
+                <input type="date" id="birthdate" name="birthdate" placeholder="Sua Data de Nascimento">
+            </div>
+    
+            <div class="form-group">
+                <label for="nickname"><i class="fas fa-user-tag"></i> Apelido ou Referência (opcional):</label>
+                <input type="text" id="nickname" name="nickname" placeholder="Seu Apelido ou Referência">
+            </div>
+    
+            <button type="submit" class="button__link"><i class="fas fa-paper-plane"></i> Agendar</button>
+        </form>
+    
+        <!-- Seção de Resumo do Agendamento -->
+        <div id="summary" class="summary" style="display: none;">
+            <h3>Resumo do Agendamento</h3>
+            <p id="summary-message"></p>
+            <button id="confirm-btn" class="button__link"><i class="fas fa-check"></i> Confirmar Agendamento</button>
+            <button id="edit-btn" class="button__link"><i class="fas fa-edit"></i> Editar Agendamento</button>
+        </div>
+
+        <!-- Seção de Confirmação de Agendamento -->
+        <div id="confirmation" class="confirmation" style="display: none;">
+            <h3><i class="fas fa-thumbs-up"></i> Confirmação de Agendamento</h3>
+            <p id="confirmation-message"></p>
+        </div>
+    </section>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const bookingForm = document.getElementById("booking-form");
+            const confirmationDiv = document.getElementById("confirmation");
+            const confirmationMessage = document.getElementById("confirmation-message");
+            const summaryDiv = document.getElementById("summary");
+            const summaryMessage = document.getElementById("summary-message");
+
+            bookingForm.addEventListener("submit", function (event) {
+                event.preventDefault(); // Evita o envio padrão do formulário
+
+                // Obtém os valores dos campos
+                const serviceSelect = document.getElementById("service");
+                const selectedService = serviceSelect.options[serviceSelect.selectedIndex].text;
+                const selectedPrice = serviceSelect.options[serviceSelect.selectedIndex].getAttribute("data-preco");
+                const selectedBarber = document.getElementById("barber").value;
+                const date = document.getElementById("date").value;
+                const time = document.getElementById("time").value;
+                const name = document.getElementById("name").value;
+                const phone = document.getElementById("phone").value;
+                const email = document.getElementById("email").value;
+                const birthdate = document.getElementById("birthdate").value;
+                const nickname = document.getElementById("nickname").value;
+
+                // Resumo do agendamento
+                summaryMessage.innerText = `Serviço: ${selectedService}\nPreço: ${selectedPrice}€\nBarbeiro: ${selectedBarber}\nData: ${date}\nHora: ${time}\nNome: ${name}\nTelefone: ${phone}\nE-mail: ${email}\nData de Nascimento: ${birthdate || "Não informado"}\nApelido: ${nickname || "Não informado"}`;
+                summaryDiv.style.display = "block";
+                bookingForm.style.display = "none"; // Oculta o formulário
+            });
+
+            // Lógica para o botão de confirmação
+            document.getElementById("confirm-btn").addEventListener("click", function () {
+                confirmationMessage.innerText = "Seu agendamento foi confirmado com sucesso!";
+                confirmationDiv.style.display = "block";
+                summaryDiv.style.display = "none"; // Oculta o resumo
+            });
+
+            // Lógica para o botão de edição
+            document.getElementById("edit-btn").addEventListener("click", function () {
+                summaryDiv.style.display = "none"; // Oculta o resumo
+                bookingForm.style.display = "block"; // Retorna ao formulário
+            });
+        });
+    </script>
+    <script src="main.js"></script>
 </body>
 </html>
